@@ -1,0 +1,24 @@
+﻿<Window x:Class="TestCommonUC.FormInputBox.FormInputBoxTestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uc="clr-namespace:CommonUC;assembly=CommonUC"
+        xmlns:local="clr-namespace:TestCommonUC.FormInputBox"
+        Title="FormInputBoxTestWindow" Height="300" Width="300">
+    <Window.Resources>
+        <local:MyConverter x:Key="MC"/>
+        <local:Class1 id="0" name="xxx"  x:Key="c1"/>
+    </Window.Resources>
+    <StackPanel DataContext="{Binding Source={StaticResource c1}}" Grid.IsSharedSizeScope="True">
+        
+        <StackPanel Margin="10" Grid.IsSharedSizeScope="True">
+            <uc:FormInputBox Text="{Binding id}" SharedSizeGroup="A" Label="{Binding Converter={StaticResource MC},ConverterParameter=id}"/>
+            <uc:FormInputBox Text="{Binding id}" SharedSizeGroup="A" Label="{Binding Converter={StaticResource MC},ConverterParameter=id}"/>
+            <uc:FormInputBox Text="{Binding name}" SharedSizeGroup="A" Label="{Binding Converter={StaticResource MC},ConverterParameter=name}" />
+
+        </StackPanel>
+        
+        <uc:FormInputBox Text="{Binding id}" LabelWidth="200" Label="{Binding Converter={StaticResource MC},ConverterParameter=id}"/>
+        <uc:FormInputBox Text="{Binding id}" Label="{Binding Converter={StaticResource MC},ConverterParameter=id}"/>
+        <uc:FormInputBox Text="{Binding name}" Label="{Binding Converter={StaticResource MC},ConverterParameter=name}" />
+    </StackPanel>
+</Window>
